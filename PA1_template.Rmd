@@ -79,8 +79,8 @@ hist(avdaynew$count, breaks=12, col="green", main="Updated Total Steps Per Day",
 BONUS: Here is an overlay of the two histograms:
 
 ```{r}
-ign<-hist(avday$count, breaks=24, plot=FALSE)
-rep<-hist(avdaynew$count, breaks=24, plot=FALSE)
+ign<-hist(avday$count, breaks=12, plot=FALSE)
+rep<-hist(avdaynew$count, breaks=12, plot=FALSE)
 plot(ign, col=rgb(0,0,1,1/4), main="Comparison of step counts", xlab = "step count")
 plot(rep, col=rgb(1,0,0,1/4), add=TRUE)
 legend('topleft',c('ignoring na values','replaced na values'),
