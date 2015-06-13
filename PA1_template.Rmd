@@ -44,7 +44,7 @@ avtim$interval1<-sprintf("%04d",avtim$interval)
 maxtim<-avtim[bin,4]
 ```
 
-The time bin with the greatest activity on average occurring at `r maxtim` hours.
+The time bin with the greatest activity on average occurs at `r maxtim` hours.
 
 ##Imputing missing values
 
@@ -58,7 +58,6 @@ newact$steps<-actavg$steps
 newact$date<-actavg$date
 newact$interval<-actavg$interval
 newact1<-newact[order(newact$date),]
-head(actavg, 100)
 ```
 
 Now I am repeating the analyses from part one with the dataset containing the imputed values
@@ -77,7 +76,7 @@ The new histogram can be found below. Note that the mean value for step counts i
 hist(avdaynew$count, breaks=12, col="green", main="Updated Total Steps Per Day", xlab = "step count")
 ```
 
-Here is an overlay of the two histograms:
+BONUS: Here is an overlay of the two histograms:
 
 ```{r}
 ign<-hist(avday$count, breaks=24, plot=FALSE)
@@ -89,7 +88,7 @@ legend('topleft',c('ignoring na values','replaced na values'),
        border = NA)
 ```
 
-To address the question asked in the assignment, yes, adding in the missing values makes some difference, but because the missing values represent entire days and I replaced the missing values with the average for that time bin, it just increases the number of days with the average number of steps. It's questionable whether this is a reasonable data manipulation given the circumstances.
+To address the question asked in the assignment, yes, adding in the missing values makes some difference, but because the missing values seem to largely represent entire days and I replaced the missing values with the average for that time bin, it just increases the number of days with the average number of steps. It's questionable whether this is a reasonable data manipulation given the circumstances.
 
 ##Weekdays vs. Weekends
 To examine whether the weekdays differ in profile from the weekends, I'm adding a weekday column to the original data and will filter by that to create two datasets: one with the weekday time series, and one with the weekend time series.
